@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Friend Zone Bus</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<div id="app">
+
+
+    <!-- =====================================================
+         LANDING PAGE
+    ====================================================== -->
+
+    <section class="screen landing-screen" id="landingScreen">
+
+        <div class="landing-content">
+
+            <div class="logo-bus">🚌</div>
+
+            <p class="eyebrow">RELATIONSHIP ROUTE ASSESSMENT</p>
+
+            <h1>
+                Friend Zone<br>
+                <span>Bus</span>
+            </h1>
+
+            <p class="landing-description">
+                Think you know where your relationship is heading?
+                Let's look at the signals, check what has actually
+                been communicated, and see where your bus ends up.
+            </p>
+
+            <button class="primary-button" onclick="startAssessment()">
+                Start the Ride
+                <span>→</span>
+            </button>
+
+            <p class="small-note">
+                This is an interactive self-assessment, not mind reading.
+            </p>
+            <div class="ad-slot">
+    <span>Advertisement</span>
+</div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         QUESTION SCREEN
+    ====================================================== -->
+
+    <section class="screen question-screen hidden" id="questionScreen">
+
+        <div class="question-container">
+
+            <div class="top-navigation">
+
+                <button
+                    class="back-button"
+                    onclick="previousQuestion()"
+                >
+                    ←
+                </button>
+
+                <div class="progress-container">
+
+                    <div class="progress-label">
+                        <span id="questionNumber">1</span>
+                        <span> / 16</span>
+                    </div>
+
+                    <div class="progress-track">
+
+                        <div
+                            class="progress-bar"
+                            id="progressBar"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="question-category">
+                RELATIONSHIP SIGNALS
+            </div>
+
+
+            <div class="question-card">
+
+                <h2 id="questionText">
+                    Loading question...
+                </h2>
+
+                <div
+                    class="answers"
+                    id="answerContainer"
+                ></div>
+
+            </div>
+
+
+           <button
+    id="nextButton"
+    class="next-button"
+    onclick="previousQuestion()"
+>
+    ← Back
+</button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         REALITY CHECK INTRO
+    ====================================================== -->
+
+    <section
+        class="screen reality-intro hidden"
+        id="realityIntroScreen"
+    >
+
+        <div class="reality-content">
+
+            <div class="reality-icon">
+                🔎
+            </div>
+
+            <p class="eyebrow">
+                ONE MORE STOP
+            </p>
+
+            <h1>
+                Before we decide<br>
+                where the bus is going...
+            </h1>
+
+            <p>
+                We've looked at the behaviors you've described.
+                Now we need to separate what you've actually
+                established from what you may simply be interpreting.
+            </p>
+            <div class="ad-slot">
+    <span>Advertisement</span>
+</div>
+
+
+            <button
+                class="primary-button"
+                onclick="startRealityCheck()"
+            >
+                Reality Check
+                <span>→</span>
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         REALITY CHECK QUESTIONS
+    ====================================================== -->
+
+    <section
+        class="screen question-screen hidden"
+        id="realityQuestionScreen"
+    >
+
+        <div class="question-container">
+
+            <div class="top-navigation">
+
+                <button
+                    class="back-button"
+                    onclick="previousRealityQuestion()"
+                >
+                    ←
+                </button>
+
+                <div class="progress-container">
+
+                    <div class="progress-label">
+
+                        <span id="realityQuestionNumber">
+                            1
+                        </span>
+
+                        <span> / 6</span>
+
+                    </div>
+
+                    <div class="progress-track">
+
+                        <div
+                            class="progress-bar reality-progress"
+                            id="realityProgressBar"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="question-category">
+                REALITY CHECK
+            </div>
+
+
+            <div class="question-card">
+
+                <h2 id="realityQuestionText">
+                    Loading question...
+                </h2>
+
+                <div
+                    class="answers"
+                    id="realityAnswerContainer"
+                ></div>
+
+            </div>
+
+
+             <button
+    id="realityNextButton"
+    class="next-button"
+    onclick="previousRealityQuestion()"
+>
+    ← Back
+</button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         PROCESSING SCREEN
+    ====================================================== -->
+
+    <section
+        class="screen processing-screen hidden"
+        id="processingScreen"
+    >
+
+        <div class="processing-content">
+
+            <div class="processing-road">
+
+                <div class="processing-bus">
+                    🚌
+                </div>
+
+            </div>
+
+            <p class="eyebrow">
+                CALCULATING ROUTE
+            </p>
+
+            <h1 id="processingText">
+                Checking the signals...
+            </h1>
+
+            <div class="loading-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         REVEAL SCREEN
+    ====================================================== -->
+
+    <section
+        class="screen reveal-screen hidden"
+        id="revealScreen"
+    >
+
+        <div class="reveal-header">
+
+            <p class="eyebrow">
+                YOUR ROUTE
+            </p>
+
+            <h1 id="revealTitle">
+                Let's see where you're headed.
+            </h1>
+
+        </div>
+
+
+        <div class="reveal-scene">
+
+
+            <!-- SECONDARY STATUS -->
+
+            <div
+                class="secondary-status"
+                id="secondaryStatus"
+            >
+
+                <div
+                    class="secondary-icon"
+                    id="secondaryIcon"
+                >
+                    ❤️
+                </div>
+
+                <div
+                    class="secondary-label"
+                    id="secondaryLabel"
+                >
+                    ROMANCE EXPRESSED
+                </div>
+
+            </div>
+
+
+            <!-- LEFT SIGN -->
+
+            <div class="destination-sign left-destination">
+
+                <div class="destination-board">
+                    FRIEND ZONE
+                </div>
+
+                <div class="destination-pole"></div>
+
+            </div>
+
+
+            <!-- RIGHT SIGN -->
+
+            <div class="destination-sign right-destination">
+
+                <div class="destination-board romance-board">
+                    ❤️ ROMANCE
+                </div>
+
+                <div class="destination-pole"></div>
+
+            </div>
+
+
+            <!-- ROAD -->
+
+            <div class="reveal-road"></div>
+
+
+            <!-- BUS -->
+
+            <div
+                class="reveal-bus"
+                id="revealBus"
+            >
+
+                <div class="reveal-bus-body">
+
+                    <div class="bus-window window-a"></div>
+                    <div class="bus-window window-b"></div>
+                    <div class="bus-window window-c"></div>
+                    <div class="bus-window window-d"></div>
+
+                </div>
+
+                <div class="bus-wheel wheel-a"></div>
+                <div class="bus-wheel wheel-b"></div>
+
+            </div>
+
+
+            <!-- RESULT SIGN -->
+
+            <div
+                class="emerging-result"
+                id="emergingResult"
+            >
+
+                <div
+                    class="emerging-board"
+                    id="emergingBoard"
+                >
+                    UNKNOWN ROUTE
+                </div>
+
+                <div class="emerging-pole"></div>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="reveal-continue hidden"
+            id="revealContinue"
+            onclick="showFinalResult()"
+        >
+            See My Result
+            <span>→</span>
+        </button>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         FINAL RESULT
+    ====================================================== -->
+
+    <section
+        class="screen result-screen hidden"
+        id="resultScreen"
+    >
+
+        <div class="result-container">
+
+            <p class="eyebrow">
+                FRIEND ZONE BUS REPORT
+            </p>
+
+            <h1 id="resultTitle">
+                Your Route
+            </h1>
+
+            <p
+                class="result-subtitle"
+                id="resultSubtitle"
+            >
+                Here's what your answers suggest.
+            </p>
+
+
+            <!-- SIGNAL METERS -->
+
+            <div class="meters">
+
+                <div class="meter">
+
+                    <div class="meter-header">
+
+                        <span>
+                            🚌 Platonic Signals
+                        </span>
+
+                        <strong id="platonicScore">
+                            0%
+                        </strong>
+
+                    </div>
+
+                    <div class="meter-track">
+
+                        <div
+                            class="meter-fill platonic-fill"
+                            id="platonicFill"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="meter">
+
+                    <div class="meter-header">
+
+                        <span>
+                            ❤️ Romantic Signals
+                        </span>
+
+                        <strong id="romanticScore">
+                            0%
+                        </strong>
+
+                    </div>
+
+                    <div class="meter-track">
+
+                        <div
+                            class="meter-fill romantic-fill"
+                            id="romanticFill"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="meter">
+
+                    <div class="meter-header">
+
+                        <span>
+                            🔎 Communication
+                        </span>
+
+                        <strong id="communicationScore">
+                            0%
+                        </strong>
+
+                    </div>
+
+                    <div class="meter-track">
+
+                        <div
+                            class="meter-fill communication-fill"
+                            id="communicationFill"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- EXPLANATION -->
+
+            <div class="result-card">
+
+                <h2 id="resultCardTitle">
+                    What this means
+                </h2>
+
+                <p id="resultExplanation">
+                    ...
+                </p>
+
+            </div>
+
+
+            <!-- EVIDENCE -->
+
+            <div class="evidence-grid">
+
+                <div class="evidence-card">
+
+                    <span class="evidence-icon">
+                        👀
+                    </span>
+
+                    <h3>
+                        What pushed your result
+                    </h3>
+
+                    <ul id="positiveEvidence"></ul>
+
+                </div>
+
+
+                <div class="evidence-card">
+
+                    <span class="evidence-icon">
+                        🔎
+                    </span>
+
+                    <h3>
+                        What kept it uncertain
+                    </h3>
+
+                    <ul id="uncertaintyEvidence"></ul>
+
+                </div>
+
+            </div>
+
+
+            <div class="result-actions">
+
+                <button
+                    class="primary-button"
+                    onclick="restartAssessment()"
+                >
+                    Take It Again
+                    <span>↻</span>
+                </button>
+
+            </div>
+            <div class="ad-slot">
+    <span>Advertisement</span>
+</div>
+
+        </div>
+       
+        <!-- =====================================================
+     LANDING FOOTER
+===================================================== -->
+
+<footer class="site-footer">
+
+   
+    <div class="footer-copy">
+        © 2026 Friend Zone Bus
+    </div>
+    <div class="footer-links">
+
+    <button onclick="openInfo('about')">
+        About
+    </button>
+
+    <button onclick="openInfo('disclaimer')">
+        Disclaimer
+    </button>
+
+    <button onclick="openInfo('privacy')">
+        Privacy
+    </button>
+
+    <button onclick="openInfo('terms')">
+        Terms
+    </button>
+
+    <button onclick="openInfo('contact')">
+        Contact
+    </button>
+
+</div>
+
+</footer>
+
+    </section>
+
+</div>
+
+
+<script src="script.js"></script>
+<!-- =====================================================
+     INFORMATION MODAL
+===================================================== -->
+
+<div
+    id="infoModal"
+    class="info-modal hidden"
+>
+
+    <div class="info-modal-card">
+
+        <button
+            class="info-close"
+            onclick="closeInfo()"
+        >
+            ×
+        </button>
+
+
+        <!-- ABOUT -->
+
+        <div
+            id="info-about"
+            class="info-section"
+        >
+
+            <div class="info-eyebrow">
+                ABOUT
+            </div>
+
+            <h2>
+                How Friend Zone Bus Works
+            </h2>
+
+            <p>
+                Friend Zone Bus is an interpretive tool
+                designed to help you think about complicated
+                relationship signals.
+            </p>
+
+            <p>
+                It looks at two different things:
+                <strong>signals</strong> and
+                <strong>what has actually been communicated.</strong>
+            </p>
+
+            <p>
+                Someone can flirt without wanting a relationship.
+                Someone can talk about another person without
+                sending a romantic message. And someone can behave
+                like a close friend without ever having rejected
+                romantic interest.
+            </p>
+
+            <p>
+                That's why Friend Zone Bus doesn't simply ask:
+            </p>
+
+            <div class="info-highlight">
+                "Do they like you?"
+            </div>
+
+            <p>
+                It asks:
+            </p>
+
+            <div class="info-highlight">
+                "Where does the evidence actually take you?"
+            </div>
+
+        </div>
+
+
+        <!-- DISCLAIMER -->
+
+        <div
+            id="info-disclaimer"
+            class="info-section"
+        >
+
+            <div class="info-eyebrow">
+                REALITY CHECK
+            </div>
+
+            <h2>
+                Disclaimer
+            </h2>
+
+            <p>
+                Friend Zone Bus is an interpretive tool
+                designed for personal reflection and
+                entertainment.
+            </p>
+
+            <p>
+                It cannot read another person's mind,
+                determine their private feelings, or
+                guarantee what they want from a relationship.
+            </p>
+
+            <p>
+                Your result is based entirely on the
+                information you provide. A romantic signal
+                may have several possible explanations, and
+                a platonic signal does not necessarily mean
+                someone has rejected you romantically.
+            </p>
+
+            <p>
+                The assessment should therefore not be
+                treated as proof of another person's feelings,
+                intentions, or relationship status.
+            </p>
+
+            <p>
+                If you want to know how someone actually feels,
+                honest and respectful communication with that
+                person is ultimately more reliable than any
+                assessment.
+            </p>
+
+            <div class="info-highlight">
+                We're mapping the evidence you have —
+                not claiming to know what's inside someone
+                else's head.
+            </div>
+
+        </div>
+
+
+        <!-- PRIVACY -->
+
+        <div
+            id="info-privacy"
+            class="info-section"
+        >
+
+            <div class="info-eyebrow">
+                YOUR DATA
+            </div>
+
+            <h2>
+                Privacy
+            </h2>
+
+            <p>
+                Friend Zone Bus is designed to keep the
+                assessment experience as private as possible.
+            </p>
+
+            <p>
+                The answers you provide during the assessment
+                are processed within your browser to generate
+                your result.
+            </p>
+
+            <p>
+                Friend Zone Bus does not require you to provide
+                your name, phone number, or email address in
+                order to use the assessment.
+            </p>
+
+            <p>
+                We do not ask you to identify the person you
+                are assessing.
+            </p>
+
+            <p class="info-small">
+                This privacy information may be updated if
+                Friend Zone Bus introduces features such as
+                accounts, analytics, advertising, or other
+                services that involve additional data
+                processing.
+            </p>
+
+        </div>
+
+
+       <!-- TERMS -->
+
+<div 
+    id="info-terms" 
+    class="info-section"
+>
+
+    <div class="info-eyebrow">
+        TERMS
+    </div>
+
+    <h2>
+        Terms of Use
+    </h2>
+
+    <p>
+        By using Friend Zone Bus, you agree to use
+        the website responsibly and for its intended
+        purpose.
+    </p>
+
+    <p>
+        Friend Zone Bus provides informational and
+        entertainment-oriented relationship analysis.
+        Results are estimates and should not be
+        interpreted as objective determinations of
+        another person's feelings or intentions.
+    </p>
+
+    <p>
+        You are responsible for how you interpret
+        and act upon your results.
+    </p>
+
+    <p>
+        You agree not to use Friend Zone Bus to
+        harass, threaten, manipulate, impersonate,
+        or otherwise harm another person.
+    </p>
+
+    <p>
+        Friend Zone Bus may modify, suspend, or
+        discontinue parts of the service at any time.
+    </p>
+
+    <p>
+        The Friend Zone Bus name, branding, designs,
+        animations, content, and software are protected
+        by applicable intellectual-property laws unless
+        otherwise stated.
+    </p>
+
+</div>
+
+
+<!-- CONTACT -->
+
+<div
+    id="info-contact"
+    class="info-section"
+>
+
+    <div class="info-eyebrow">
+        CONTACT
+    </div>
+
+    <h2>
+        We'd like to hear from you.
+    </h2>
+
+    <p>
+        Found a bug? Have an idea? Think one of the
+        questions needs work? Or just want to tell us
+        what you think about Friend Zone Bus?
+    </p>
+
+    <p>
+        Send us a message.
+    </p>
+
+    <div class="info-highlight">
+
+        <a
+            href="mailto:hellofriendzonebus@gmail.com"
+            class="contact-email"
+        >
+            ✉ hellofriendzonebus@gmail.com
+        </a>
+
+    </div>
+
+    <p class="info-small">
+        Please don't send private or identifying
+        information about another person.
+    </p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>
