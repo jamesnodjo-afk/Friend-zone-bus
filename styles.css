@@ -2691,6 +2691,286 @@ button {
     text-decoration: underline;
 
 }
+/* =========================================================
+   MOBILE LANDING PAGE — COMPACT
+========================================================= */
 
-
+.landing-screen {
+    padding: 25px 15px;
 }
+
+.landing-content {
+    max-width: 100%;
+}
+
+/* Smaller landing bus */
+.logo-bus {
+    width: 145px;
+    height: 85px;
+    margin: 0 auto 14px;
+}
+
+.logo-bus-body {
+    width: 145px;
+    height: 55px;
+    bottom: 10px;
+    border-width: 3px;
+    border-radius: 11px 14px 7px 7px;
+}
+
+.logo-bus-window {
+    top: 8px;
+    width: 26px;
+    height: 22px;
+    border-width: 2px;
+}
+
+.logo-bus-window.window-a {
+    left: 10px;
+}
+
+.logo-bus-window.window-b {
+    left: 41px;
+}
+
+.logo-bus-window.window-c {
+    left: 72px;
+}
+
+.logo-bus-window.window-d {
+    right: 8px;
+}
+
+.logo-bus-wheel {
+    width: 26px;
+    height: 26px;
+    border-width: 4px;
+}
+
+.logo-bus-wheel.wheel-a {
+    left: 16px;
+}
+
+.logo-bus-wheel.wheel-b {
+    right: 16px;
+}
+
+/* Smaller text */
+.eyebrow {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+}
+
+
+.landing-content h1 {
+    font-size: 48px;
+    line-height: .9;
+    letter-spacing: -3px;
+    margin: 0 auto 18px;
+    text-align: center;
+}
+
+.landing-description {
+    width: 88%;
+    max-width: 340px;
+    margin: 0 auto 20px;
+    font-size: 15px;
+    line-height: 1.45;
+    text-align: center;
+}
+.primary-button {
+    padding: 13px 21px;
+    font-size: 15px;
+    gap: 12px;
+}
+
+.small-note {
+    margin-top: 14px;
+    font-size: 11px;
+}
+
+/* =========================================================
+   MOBILE QUESTION SCREEN — COMPACT
+========================================================= */
+
+.question-screen {
+    padding: 18px 12px;
+}
+
+.question-container {
+    width: 100%;
+    margin-top: 5px;
+}
+
+/* TOP NAVIGATION */
+
+.top-navigation {
+    gap: 10px;
+    margin-bottom: 22px;
+}
+
+.back-button {
+    width: 36px;
+    height: 36px;
+    font-size: 17px;
+}
+
+.progress-label {
+    font-size: 10px;
+    margin-bottom: 5px;
+}
+
+.progress-track {
+    height: 5px;
+}
+
+/* QUESTION CATEGORY */
+
+.question-category {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+}
+
+/* QUESTION CARD */
+
+.question-card {
+    border-radius: 16px;
+    padding: 22px 18px;
+}
+
+.question-card h2 {
+    margin: 0 0 20px;
+    font-size: 24px;
+    line-height: 1.15;
+}
+
+/* ANSWERS */
+
+.answers {
+    gap: 8px;
+}
+
+.answer-option {
+    padding: 13px 15px;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+.answer-option.selected::after {
+    right: 14px;
+    font-size: 15px;
+}
+
+/* NEXT BUTTON */
+
+.next-button {
+    margin-top: 12px;
+    padding: 13px;
+    border-radius: 10px;
+    font-size: 15px;
+}
+
+/* =========================================================
+   MOBILE RESULT SCREEN — COMPACT
+========================================================= */
+
+.result-screen {
+    padding: 20px 12px;
+}
+
+.result-container {
+    width: 100%;
+    max-width: 100%;
+}
+
+/* RESULT HEADER */
+
+.result-header {
+    margin-bottom: 18px;
+}
+
+.result-header h1 {
+    font-size: 30px;
+    line-height: 1.05;
+    margin-bottom: 8px;
+}
+
+/* RESULT MAIN CARD */
+
+.result-card {
+    padding: 20px 16px;
+    border-radius: 16px;
+}
+
+/* RESULT DESCRIPTION */
+
+.result-description {
+    font-size: 14px;
+    line-height: 1.45;
+    margin-bottom: 18px;
+}
+
+/* WHAT PUSHED YOUR RESULT */
+
+.result-section {
+    margin-top: 18px;
+    padding: 16px;
+    border-radius: 12px;
+}
+
+.result-section h3 {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.result-section p {
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+/* LISTS INSIDE RESULT SECTIONS */
+
+.result-section ul {
+    margin: 8px 0 0;
+    padding-left: 18px;
+}
+
+.result-section li {
+    font-size: 13px;
+    line-height: 1.35;
+    margin-bottom: 6px;
+}
+
+/* WHAT KEPT IT UNCERTAIN */
+
+.uncertainty-section {
+    margin-top: 14px;
+    padding: 16px;
+}
+
+.uncertainty-section h3 {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.uncertainty-section p,
+.uncertainty-section li {
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+/* BUTTONS */
+
+.result-actions {
+    margin-top: 18px;
+    gap: 8px;
+}
+
+.result-actions button {
+    padding: 13px 15px;
+    font-size: 14px;
+}
+}
+
