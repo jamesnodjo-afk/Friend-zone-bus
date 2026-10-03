@@ -77,14 +77,137 @@ button {
     text-align: center;
 }
 
+/* =========================================================
+   FRIEND ZONE BUS — LANDING BUS
+========================================================= */
+
 .logo-bus {
+    position: relative;
+    width: 180px;
+    height: 105px;
+    margin: 0 auto 20px;
+    animation: logoBusFloat 3s ease-in-out infinite;
+}
 
-    font-size: 75px;
 
-    margin-bottom: 10px;
+/* BUS BODY */
 
-    animation:
-        idleBus 2s ease-in-out infinite;
+.logo-bus-body {
+    position: absolute;
+    left: 0;
+    bottom: 12px;
+
+    width: 180px;
+    height: 68px;
+
+    background: #e7b84b;
+
+    border: 4px solid #222;
+
+    border-radius: 14px 18px 9px 9px;
+
+    box-sizing: border-box;
+}
+
+
+/* WINDOWS */
+
+.logo-bus-window {
+    position: absolute;
+
+    top: 10px;
+
+    width: 32px;
+    height: 27px;
+
+    background: #b9d7e8;
+
+    border: 3px solid #222;
+
+    border-radius: 5px;
+
+    box-sizing: border-box;
+}
+
+.logo-bus-window.window-a {
+    left: 12px;
+}
+
+.logo-bus-window.window-b {
+    left: 50px;
+}
+
+.logo-bus-window.window-c {
+    left: 88px;
+}
+
+.logo-bus-window.window-d {
+    right: 10px;
+}
+
+
+/* FRONT OF BUS */
+
+.logo-bus-front {
+    position: absolute;
+
+    right: -4px;
+    bottom: 0;
+
+    width: 13px;
+    height: 42px;
+
+    background: #d39f32;
+
+    border-left: 3px solid #222;
+
+    border-radius: 0 10px 7px 0;
+}
+
+
+/* WHEELS */
+
+.logo-bus-wheel {
+    position: absolute;
+
+    bottom: 0;
+
+    width: 32px;
+    height: 32px;
+
+    background: #222;
+
+    border: 5px solid #777;
+
+    border-radius: 50%;
+
+    box-sizing: border-box;
+
+    z-index: 3;
+}
+
+.logo-bus-wheel.wheel-a {
+    left: 20px;
+}
+
+.logo-bus-wheel.wheel-b {
+    right: 20px;
+}
+
+
+/* FLOATING MOTION */
+
+@keyframes logoBusFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
 }
 
 @keyframes idleBus {
@@ -465,11 +588,111 @@ button {
 }
 
 
+/* =========================================================
+   REALITY CHECK — CLEAN MAGNIFYING GLASS
+========================================================= */
+
 .reality-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-    font-size: 65px;
 
-    margin-bottom: 20px;
+/* WHOLE GLASS */
+
+.magnifying-glass {
+    position: relative;
+
+    width: 90px;
+    height: 90px;
+
+    animation: lensFloat 3s ease-in-out infinite;
+}
+
+
+/* ROUND LENS */
+
+.magnifying-lens {
+    position: absolute;
+
+    top: 3px;
+    left: 3px;
+
+    width: 58px;
+    height: 58px;
+
+    background: #eaf4ff;
+
+    border: 6px solid #222;
+
+    border-radius: 50%;
+
+    box-sizing: border-box;
+}
+
+
+/* GLASS REFLECTION */
+
+.magnifying-lens::after {
+    content: "";
+
+    position: absolute;
+
+    top: 10px;
+    left: 13px;
+
+    width: 15px;
+    height: 7px;
+
+    background: white;
+
+    border-radius: 50%;
+
+    transform: rotate(-25deg);
+
+    opacity: .8;
+}
+
+
+/* HANDLE */
+
+.magnifying-handle {
+    position: absolute;
+
+    top: 54px;
+    left: 49px;
+
+    width: 16px;
+    height: 38px;
+
+    background: #e7b84b;
+
+    border: 5px solid #222;
+
+    border-radius: 8px;
+
+    transform: rotate(-35deg);
+
+    transform-origin: top center;
+
+    box-sizing: border-box;
+}
+
+
+/* FLOAT */
+
+@keyframes lensFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+
 }
 
 
@@ -578,6 +801,130 @@ button {
     animation:
         processingDrive 2.2s
         linear infinite;
+}
+/* =========================================================
+   PROCESSING / LOADING BUS
+========================================================= */
+
+/* =========================================================
+   PROCESSING BUS — TRAVEL MOTION
+========================================================= */
+
+.processing-bus {
+    position: absolute;
+
+    width: 150px;
+    height: 85px;
+
+    bottom: 18%;
+
+    left: -180px;
+
+    margin: 0;
+
+    z-index: 5;
+
+    animation: processingBusDrive 5s linear infinite;
+}
+
+
+@keyframes processingBusDrive {
+
+    0% {
+        left: -180px;
+    }
+
+    100% {
+        left: calc(100% + 180px);
+    }
+
+}
+
+
+/* BUS BODY */
+
+.processing-bus-body {
+    position: absolute;
+
+    left: 0;
+    bottom: 13px;
+
+    width: 150px;
+    height: 57px;
+
+    background: #e7b84b;
+
+    border: 4px solid #222;
+
+    border-radius: 12px 16px 8px 8px;
+
+    box-sizing: border-box;
+}
+
+
+/* WINDOWS */
+
+.processing-bus-window {
+    position: absolute;
+
+    top: 8px;
+
+    width: 26px;
+    height: 22px;
+
+    background: #b9d7e8;
+
+    border: 3px solid #222;
+
+    border-radius: 4px;
+
+    box-sizing: border-box;
+}
+
+.processing-bus-window.window-a {
+    left: 10px;
+}
+
+.processing-bus-window.window-b {
+    left: 42px;
+}
+
+.processing-bus-window.window-c {
+    left: 74px;
+}
+
+.processing-bus-window.window-d {
+    right: 8px;
+}
+
+
+/* WHEELS */
+
+.processing-bus-wheel {
+    position: absolute;
+
+    bottom: 2px;
+
+    width: 27px;
+    height: 27px;
+
+    background: #222;
+
+    border: 4px solid #777;
+
+    border-radius: 50%;
+
+    box-sizing: border-box;
+
+    z-index: 3;
+}
+
+.processing-bus-wheel.wheel-a {
+    left: 16px;
+}
+
+.processing-bus-wheel.wheel-b {
+    right: 16px;
 }
 
 
@@ -1086,7 +1433,358 @@ button {
     margin: auto;
 }
 
+/* =========================================================
+   RESULT METER — MINI BUS
+========================================================= */
 
+.meter-title {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+}
+
+
+.mini-bus {
+
+    position: relative;
+
+    display: inline-block;
+
+    width: 34px;
+
+    height: 22px;
+
+    flex-shrink: 0;
+
+}
+
+
+.mini-bus-body {
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: 4px;
+
+    width: 34px;
+
+    height: 15px;
+
+    background: #e7b84b;
+
+    border: 2px solid #222;
+
+    border-radius: 4px 5px 3px 3px;
+
+    box-sizing: border-box;
+
+}
+
+
+.mini-bus-window {
+
+    position: absolute;
+
+    top: 3px;
+
+    width: 6px;
+
+    height: 6px;
+
+    background: #b9d7e8;
+
+    border: 1px solid #222;
+
+    border-radius: 1px;
+
+    box-sizing: border-box;
+
+}
+
+
+.mini-bus-window.window-a {
+    left: 4px;
+}
+
+
+.mini-bus-window.window-b {
+    left: 12px;
+}
+
+
+.mini-bus-window.window-c {
+    left: 20px;
+}
+
+
+.mini-bus-wheel {
+
+    position: absolute;
+
+    bottom: 0;
+
+    width: 8px;
+
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #222;
+
+    border: 1px solid #777;
+
+    box-sizing: border-box;
+
+}
+
+
+.mini-bus-wheel.wheel-a {
+    left: 5px;
+}
+
+
+.mini-bus-wheel.wheel-b {
+    right: 5px;
+}
+
+
+/* =========================================================
+   RESULT METER — MINI HEART
+========================================================= */
+
+.meter-title {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+}
+
+
+.mini-heart {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 23px;
+
+    height: 21px;
+
+    flex-shrink: 0;
+
+}
+
+
+.mini-heart svg {
+
+    width: 21px;
+
+    height: 20px;
+
+    display: block;
+
+}
+
+
+.mini-heart path {
+
+    fill: #d94b4b;
+
+    stroke: #222;
+
+    stroke-width: 1.8;
+
+    stroke-linejoin: round;
+
+}
+
+.mini-magnifier {
+    position: relative;
+    display: inline-block;
+    width: 23px;
+    height: 23px;
+    flex-shrink: 0;
+}
+
+.mini-magnifier-lens {
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    width: 14px;
+    height: 14px;
+    border: 2px solid #222;
+    border-radius: 50%;
+    background: #eaf4ff;
+    box-sizing: border-box;
+}
+
+.mini-magnifier-handle {
+    position: absolute;
+    top: 13px;
+    left: 14px;
+    width: 6px;
+    height: 11px;
+    background: #e7b84b;
+    border: 2px solid #222;
+    border-radius: 3px;
+    transform: rotate(-40deg);
+    transform-origin: top center;
+    box-sizing: border-box;
+}
+
+.result-title-content {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.result-mini-bus {
+    position: relative;
+    display: inline-block;
+    width: 34px;
+    height: 23px;
+    flex-shrink: 0;
+}
+
+.result-mini-bus-body {
+    position: absolute;
+    left: 0;
+    bottom: 4px;
+    width: 34px;
+    height: 16px;
+    background: #e7b84b;
+    border: 2px solid #222;
+    border-radius: 4px 5px 3px 3px;
+    box-sizing: border-box;
+}
+
+.result-mini-bus-window {
+    position: absolute;
+    top: 3px;
+    width: 6px;
+    height: 6px;
+    background: #b9d7e8;
+    border: 1px solid #222;
+    border-radius: 1px;
+    box-sizing: border-box;
+}
+
+.result-mini-bus-window.window-a {
+    left: 4px;
+}
+
+.result-mini-bus-window.window-b {
+    left: 12px;
+}
+
+.result-mini-bus-window.window-c {
+    left: 20px;
+}
+
+.result-mini-bus-wheel {
+    position: absolute;
+    bottom: 0;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #222;
+    border: 1px solid #777;
+    box-sizing: border-box;
+}
+
+.result-mini-bus-wheel.wheel-a {
+    left: 5px;
+}
+
+.result-mini-bus-wheel.wheel-b {
+    right: 5px;
+}
+
+.evidence-eyes {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.evidence-eye {
+    position: relative;
+    width: 22px;
+    height: 14px;
+    background: white;
+    border: 2px solid #222;
+    border-radius: 50% / 60%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.evidence-pupil {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 7px;
+    height: 7px;
+    background: #222;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+.evidence-magnifier {
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+}
+
+.evidence-magnifier-lens {
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    width: 19px;
+    height: 19px;
+    background: #eaf4ff;
+    border: 3px solid #222;
+    border-radius: 50%;
+    box-sizing: border-box;
+}
+
+.evidence-magnifier-lens::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 4px;
+    width: 6px;
+    height: 3px;
+    background: white;
+    border-radius: 50%;
+    transform: rotate(-25deg);
+}
+
+.evidence-magnifier-handle {
+    position: absolute;
+    top: 17px;
+    left: 18px;
+    width: 8px;
+    height: 14px;
+    background: #e7b84b;
+    border: 2px solid #222;
+    border-radius: 4px;
+    transform: rotate(-40deg);
+    transform-origin: top center;
+    box-sizing: border-box;
+}
 /* =========================================================
    REVEAL CONTINUE
 ========================================================= */
@@ -1238,488 +1936,6 @@ button {
     background: #888;
 }
 
-
-/* =========================================================
-   RESULT CARD
-========================================================= */
-
-.result-card {
-
-    background: white;
-
-    border-radius: 18px;
-
-    padding: 30px;
-
-    margin-bottom: 25px;
-
-    border: 1px solid #e5e5e5;
-}
-
-
-.result-card h2 {
-
-    margin-top: 0;
-}
-
-
-.result-card p {
-
-    line-height: 1.7;
-
-    color: #555;
-}
-
-
-/* =========================================================
-   EVIDENCE
-========================================================= */
-
-.evidence-grid {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(
-            2,
-            1fr
-        );
-
-    gap: 20px;
-}
-
-
-.evidence-card {
-
-    background: white;
-
-    border-radius: 18px;
-
-    padding: 25px;
-
-    border: 1px solid #e5e5e5;
-}
-
-
-.evidence-icon {
-
-    font-size: 28px;
-}
-
-
-.evidence-card h3 {
-
-    margin-bottom: 15px;
-}
-
-
-.evidence-card ul {
-
-    padding-left: 20px;
-
-    color: #666;
-
-    line-height: 1.7;
-}
-
-
-.result-actions {
-
-    text-align: center;
-
-    margin-top: 35px;
-}
-/* =========================================================
-   ADVERTISEMENT SPACES
-========================================================= */
-
-.ad-slot {
-    width: min(100%, 728px);
-    min-height: 90px;
-    margin: 35px auto;
-    padding: 12px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background: #eee;
-    border: 1px solid #e1e1e1;
-    border-radius: 10px;
-
-    color: #999;
-    font-size: 10px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-
-.ad-slot span {
-    opacity: .7;
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-/* =========================================================
-   MOBILE — REVEAL SCENE
-========================================================= */
-
-@media (max-width: 700px) {
-
-    .question-card {
-        padding: 25px;
-    }
-
-    .evidence-grid {
-        grid-template-columns: 1fr;
-    }
-
-        .ad-slot {
-        width: 100%;
-        min-height: 70px;
-        margin: 25px auto;
-    }
-    
-    /* =========================================================
-   QUESTION TRANSITIONS
-========================================================= */
-
-.question-card {
-    transition:
-        opacity .22s ease,
-        transform .22s ease;
-}
-
-.question-card.question-exit-left {
-    opacity: 0;
-    transform: translateX(-18px);
-}
-
-.question-card.question-enter {
-    opacity: 0;
-    transform: translateX(18px);
-}
-
-.question-card.question-enter-active {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-
-    /* =====================================================
-       REVEAL SCREEN
-    ===================================================== */
-
-    .reveal-screen {
-        padding: 25px 10px;
-    }
-
-    .reveal-header {
-        margin-bottom: 15px;
-    }
-
-    .reveal-header h1 {
-        font-size: 28px;
-    }
-
-
-    /* =====================================================
-       REVEAL SCENE
-    ===================================================== */
-
-    .reveal-scene {
-
-        width: 100%;
-
-        height: 360px;
-
-        border-radius: 16px;
-
-        overflow: hidden;
-
-    }
-
-
-    /* =====================================================
-       ROAD
-    ===================================================== */
-
-    .reveal-road {
-
-        height: 38%;
-
-    }
-
-
-    /* =====================================================
-       DESTINATION SIGNS
-    ===================================================== */
-
-    .destination-sign {
-
-        bottom: 38%;
-
-    }
-
-
-    .left-destination {
-
-        left: 5px;
-
-    }
-
-
-    .right-destination {
-
-        right: 5px;
-
-    }
-
-
-    .destination-board {
-
-        font-size: 10px;
-
-        padding: 9px 8px;
-
-        border-width: 3px;
-
-        white-space: nowrap;
-
-    }
-
-
-    .romance-board {
-
-        padding-left: 10px;
-
-        padding-right: 10px;
-
-    }
-
-
-    .destination-pole {
-
-        width: 6px;
-
-        height: 75px;
-
-    }
-
-
-    /* =====================================================
-       BUS
-    ===================================================== */
-
-    .reveal-bus {
-
-        width: 115px;
-
-        height: 62px;
-
-        bottom: 14%;
-
-    }
-
-
-    .reveal-bus-body {
-
-        height: 47px;
-
-        border-width: 3px;
-
-        border-radius:
-            9px
-            12px
-            7px
-            7px;
-
-    }
-
-
-    /* BUS WINDOWS */
-
-    .bus-window {
-
-        top: 7px;
-
-        width: 22px;
-
-        height: 18px;
-
-        border-width: 2px;
-
-    }
-
-
-    .window-a {
-
-        left: 9px;
-
-    }
-
-
-    .window-b {
-
-        left: 35px;
-
-    }
-
-
-    .window-c {
-
-        left: 61px;
-
-    }
-
-
-    .window-d {
-
-        right: 7px;
-
-    }
-
-
-    /* BUS WHEELS */
-
-    .bus-wheel {
-
-        width: 23px;
-
-        height: 23px;
-
-        bottom: -10px;
-
-        border-width: 4px;
-
-    }
-
-
-    .wheel-a {
-
-        left: 14px;
-
-    }
-
-
-    .wheel-b {
-
-        right: 14px;
-
-    }
-
-
-    /* =====================================================
-       SECONDARY STATUS
-    ===================================================== */
-
-    .secondary-status {
-
-        top: 12px;
-
-        left: 12px;
-
-        gap: 7px;
-
-    }
-
-
-    .secondary-icon {
-
-        width: 42px;
-
-        height: 42px;
-
-        font-size: 22px;
-
-        border-width: 2px;
-
-    }
-
-
-   .secondary-label {
-
-    display: block;
-
-    max-width: 180px;
-
-    padding: 7px 9px;
-
-    font-size: 9px;
-
-    line-height: 1.2;
-
-    border-width: 2px;
-
-    letter-spacing: .3px;
-
-}
-
-
-    /* =====================================================
-       EMERGING RESULT
-    ===================================================== */
-
-    .emerging-result {
-
-        bottom: 38%;
-
-    }
-
-
-    .emerging-board {
-
-        min-width: 0;
-
-        width: max-content;
-
-        max-width: 75vw;
-
-        padding: 12px 15px;
-
-        border-width: 3px;
-
-        font-size: 13px;
-
-        text-align: center;
-
-    }
-
-
-    .emerging-pole {
-
-        width: 6px;
-
-        height: 75px;
-
-    }
-
-
-    /* =====================================================
-       CONTINUE
-    ===================================================== */
-
-    .reveal-continue {
-
-        margin-top: 15px;
-
-        padding: 13px 20px;
-
-        font-size: 14px;
-
-    }
-
-}
-
-@media (max-width: 700px) {
-
-    .reveal-bus {
-        max-width: 115px;
-    }
-
-}
 /* =========================================================
    LANDING FOOTER
 ========================================================= */
@@ -1779,7 +1995,6 @@ button {
     font-size: 11px;
 
 }
-
 
 /* =========================================================
    INFORMATION MODAL
@@ -1960,6 +2175,501 @@ button {
     color: #888 !important;
 
 }
+
+
+
+
+/* =========================================================
+   RESULT CARD
+========================================================= */
+
+.result-card {
+
+    background: white;
+
+    border-radius: 18px;
+
+    padding: 30px;
+
+    margin-bottom: 25px;
+
+    border: 1px solid #e5e5e5;
+}
+
+
+.result-card h2 {
+
+    margin-top: 0;
+}
+
+
+.result-card p {
+
+    line-height: 1.7;
+
+    color: #555;
+}
+
+
+/* =========================================================
+   EVIDENCE
+========================================================= */
+
+.evidence-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            1fr
+        );
+
+    gap: 20px;
+}
+
+
+.evidence-card {
+
+    background: white;
+
+    border-radius: 18px;
+
+    padding: 25px;
+
+    border: 1px solid #e5e5e5;
+}
+
+
+.evidence-icon {
+
+    font-size: 28px;
+}
+
+
+.evidence-card h3 {
+
+    margin-bottom: 15px;
+}
+
+
+.evidence-card ul {
+
+    padding-left: 20px;
+
+    color: #666;
+
+    line-height: 1.7;
+}
+
+
+.result-actions {
+
+    text-align: center;
+
+    margin-top: 35px;
+}
+
+
+/* =========================================================
+   ADVERTISEMENT SPACES
+========================================================= */
+
+.ad-slot {
+    width: min(100%, 728px);
+    min-height: 90px;
+    margin: 35px auto;
+    padding: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #eee;
+    border: 1px solid #e1e1e1;
+    border-radius: 10px;
+
+    color: #999;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.ad-slot span {
+    opacity: .7;
+}
+
+
+
+
+
+/* =========================================================
+   FRIEND ZONE BUS
+   MOBILE REVEAL — ADAPTIVE PHONE COMPOSITION
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .reveal-screen {
+        padding: 18px 8px;
+    }
+
+    .reveal-header {
+        margin-bottom: 12px;
+    }
+
+    .reveal-header h1 {
+        font-size: 26px;
+        line-height: 1.1;
+    }
+
+
+    /* -----------------------------------------
+       MOBILE SCENE
+    ----------------------------------------- */
+
+    .reveal-scene {
+        position: relative;
+
+        width: 100%;
+
+        /*
+           Keeps the scene wide on phones,
+           but prevents extreme heights.
+        */
+        aspect-ratio: 16 / 9;
+
+        min-height: 205px;
+        max-height: 300px;
+
+        margin: 0 auto;
+
+        overflow: hidden;
+
+        border-radius: 16px;
+
+        background: #eaf4ff;
+    }
+
+
+    /* -----------------------------------------
+       ROAD
+    ----------------------------------------- */
+
+    .reveal-road {
+        position: absolute;
+
+        left: 0;
+        bottom: 0;
+
+        width: 100%;
+        height: 40%;
+
+        background: #555;
+
+        z-index: 1;
+    }
+
+    .reveal-road::after {
+        content: "";
+
+        position: absolute;
+
+        left: 0;
+        top: 50%;
+
+        width: 100%;
+        height: 4px;
+
+        background:
+            repeating-linear-gradient(
+                to right,
+                white 0,
+                white 28px,
+                transparent 28px,
+                transparent 55px
+            );
+    }
+
+
+    /* -----------------------------------------
+       DESTINATION SIGNS
+    ----------------------------------------- */
+
+    .destination-sign {
+        position: absolute;
+
+        bottom: 40%;
+
+        z-index: 4;
+    }
+
+    .left-destination {
+        left: 5%;
+    }
+
+    .right-destination {
+        right: 5%;
+    }
+
+    .destination-board {
+        padding: 7px 9px;
+
+        background: white;
+
+        border: 3px solid #222;
+
+        border-radius: 6px;
+
+        font-weight: 800;
+
+        font-size: 8px;
+
+        white-space: nowrap;
+    }
+
+    .romance-board {
+        padding-left: 9px;
+        padding-right: 9px;
+    }
+
+    .destination-pole {
+        width: 5px;
+
+        height: 50px;
+
+        background: #222;
+
+        margin: auto;
+    }
+
+
+    /* -----------------------------------------
+       BUS
+    ----------------------------------------- */
+
+    .reveal-bus {
+        position: absolute;
+
+        left: 50%;
+
+        bottom: 12%;
+
+        /*
+           Scale bus with scene width,
+           but keep it inside sensible limits.
+        */
+        width: clamp(
+            100px,
+            28vw,
+            125px
+        );
+
+        height: clamp(
+            55px,
+            15vw,
+            68px
+        );
+
+        transform: translateX(-50%);
+
+        z-index: 8;
+
+        transition:
+            left 2.5s cubic-bezier(.65,0,.25,1);
+    }
+
+
+    .reveal-bus-body {
+        position: absolute;
+
+        bottom: 0;
+
+        width: 100%;
+
+        height: 72%;
+
+        background: #e7b84b;
+
+        border: 3px solid #222;
+
+        border-radius: 9px 12px 6px 6px;
+    }
+
+
+    /* -----------------------------------------
+       BUS WINDOWS
+    ----------------------------------------- */
+
+    .bus-window {
+        position: absolute;
+
+        top: 14%;
+
+        width: 19%;
+
+        height: 36%;
+
+        background: #b9d7e8;
+
+        border: 2px solid #222;
+
+        border-radius: 3px;
+    }
+
+    .window-a {
+        left: 7%;
+    }
+
+    .window-b {
+        left: 31%;
+    }
+
+    .window-c {
+        left: 55%;
+    }
+
+    .window-d {
+        right: 5%;
+    }
+
+
+    /* -----------------------------------------
+       BUS WHEELS
+    ----------------------------------------- */
+
+   /* -----------------------------------------
+   BUS WHEELS
+----------------------------------------- */
+
+.bus-wheel {
+    position: absolute;
+
+    bottom: -10px;
+
+    width: 25px;
+    height: 25px;
+
+    border-radius: 50%;
+
+    background: #222;
+
+    border: 4px solid #777;
+
+    box-sizing: border-box;
+}
+
+.wheel-a {
+    left: 14px;
+}
+
+.wheel-b {
+    right: 14px;
+}
+
+    /* -----------------------------------------
+       EMERGING RESULT
+    ----------------------------------------- */
+
+    .emerging-result {
+        position: absolute;
+
+        left: 50%;
+
+        bottom: 40%;
+
+        transform:
+            translate(-50%, 80px);
+
+        opacity: 0;
+
+        z-index: 12;
+
+        transition:
+            transform .9s cubic-bezier(.2,.8,.2,1),
+            opacity .5s ease;
+    }
+
+    .emerging-result.show {
+        transform:
+            translate(-50%, 0);
+
+        opacity: 1;
+    }
+
+    .emerging-board {
+        min-width: 0;
+
+        padding: 8px 11px;
+
+        background: white;
+
+        border: 3px solid #222;
+
+        border-radius: 7px;
+
+        font-weight: 800;
+
+        font-size: 11px;
+
+        white-space: nowrap;
+    }
+
+    .emerging-pole {
+        width: 5px;
+
+        height: 50px;
+
+        background: #222;
+
+        margin: auto;
+    }
+
+
+    /* -----------------------------------------
+       SECONDARY STATUS
+    ----------------------------------------- */
+
+    .secondary-status {
+        position: absolute;
+
+        top: 7px;
+        left: 7px;
+
+        z-index: 20;
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 5px;
+    }
+
+    .secondary-icon {
+        width: 34px;
+        height: 34px;
+
+        font-size: 17px;
+
+        border-width: 2px;
+    }
+
+    .secondary-label {
+        display: block;
+
+        max-width: 110px;
+
+        padding: 5px 7px;
+
+        font-size: 7px;
+
+        line-height: 1.2;
+
+        border-width: 2px;
+    }
+
+    
+
 /* =========================================================
    CONTACT EMAIL
 ========================================================= */
@@ -1979,5 +2689,8 @@ button {
 .contact-email:hover {
 
     text-decoration: underline;
+
+}
+
 
 }

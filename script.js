@@ -1520,14 +1520,21 @@ function revealFriendZone() {
         );
 
 
-    showSecondary(
-        "🎫",
-        "ROMANTIC INTEREST WAS ESTABLISHED"
-    );
-
-
     bus.style.left =
         "15%";
+
+
+    setTimeout(
+        () => {
+
+            showSecondary(
+                "🎫",
+                "ROMANTIC INTEREST WAS ESTABLISHED"
+            );
+
+        },
+        2800
+    );
 
 
     finishReveal();
@@ -1546,19 +1553,25 @@ function revealRomance() {
         );
 
 
-    showSecondary(
-        "❤️",
-        "ROMANTIC INTEREST WAS ESTABLISHED"
-    );
-
-
     bus.style.left =
         "85%";
 
 
+    setTimeout(
+        () => {
+
+            showSecondary(
+                "❤️",
+                "ROMANTIC INTEREST WAS ESTABLISHED"
+            );
+
+        },
+        2800
+    );
+
+
     finishReveal();
 }
-
 
 /* =========================================================
    REVEAL — ROMANTIC UNCONFIRMED
@@ -1576,12 +1589,6 @@ function revealRomanticUnconfirmed() {
         "ROMANCE UNCONFIRMED";
 
 
-    showSecondary(
-        "♡",
-        "ROMANTIC POSSIBILITY — NOT EXPRESSED"
-    );
-
-
     document
         .getElementById(
             "emergingResult"
@@ -1591,9 +1598,21 @@ function revealRomanticUnconfirmed() {
         );
 
 
+    setTimeout(
+        () => {
+
+            showSecondary(
+                "♡",
+                "ROMANTIC POSSIBILITY — NOT EXPRESSED"
+            );
+
+        },
+        1000
+    );
+
+
     finishReveal();
 }
-
 
 /* =========================================================
    REVEAL — PLATONIC UNCONFIRMED
@@ -1611,12 +1630,6 @@ function revealPlatonicUnconfirmed() {
         "NO TICKET";
 
 
-    showSecondary(
-        "🎫",
-        "ROMANTIC INTEREST WAS NOT EXPRESSED"
-    );
-
-
     document
         .getElementById(
             "emergingResult"
@@ -1624,6 +1637,19 @@ function revealPlatonicUnconfirmed() {
         .classList.add(
             "show"
         );
+
+
+    setTimeout(
+        () => {
+
+            showSecondary(
+                "🎫",
+                "ROMANTIC INTEREST WAS NOT EXPRESSED"
+            );
+
+        },
+        1000
+    );
 
 
     finishReveal();
@@ -1646,12 +1672,6 @@ function revealUnknown() {
         "UNKNOWN ROUTE";
 
 
-    showSecondary(
-        "🪧",
-        "INSUFFICIENT EVIDENCE"
-    );
-
-
     document
         .getElementById(
             "emergingResult"
@@ -1661,9 +1681,21 @@ function revealUnknown() {
         );
 
 
+    setTimeout(
+        () => {
+
+            showSecondary(
+                "🪧",
+                "INSUFFICIENT EVIDENCE"
+            );
+
+        },
+        1000
+    );
+
+
     finishReveal();
 }
-
 
 /* =========================================================
    SECONDARY ICON
@@ -1869,8 +1901,28 @@ function generateFinalResult() {
         subtitle.textContent =
             "The destination has been established.";
 
-        cardTitle.textContent =
-            "🚌 Confirmed Friend Zone";
+      cardTitle.innerHTML = `
+    <span class="result-title-content">
+
+        <span class="result-mini-bus">
+
+            <span class="result-mini-bus-body">
+                <span class="result-mini-bus-window window-a"></span>
+                <span class="result-mini-bus-window window-b"></span>
+                <span class="result-mini-bus-window window-c"></span>
+            </span>
+
+            <span class="result-mini-bus-wheel wheel-a"></span>
+            <span class="result-mini-bus-wheel wheel-b"></span>
+
+        </span>
+
+        <span>
+            Confirmed Friend Zone
+        </span>
+
+    </span>
+`;
 
         explanation.textContent =
             "Your answers suggest a strongly platonic relationship, and the reality check indicates that a romantic boundary has actually been communicated.";
